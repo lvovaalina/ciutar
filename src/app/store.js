@@ -1,8 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { combineReducers, createStore } from 'redux'
+import tweetsReducer from '../reducers/tweetsReducer'
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+const rootReducer = combineReducers({
+  tweets: tweetsReducer,
+})
+
+const configureStore = () => {
+  return createStore(
+    rootReducer
+  );
+}
+
+export default configureStore
