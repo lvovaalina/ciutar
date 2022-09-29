@@ -12,10 +12,7 @@ const CreateTweet = ({onSubmit}) => {
     const handleSubmit = (tweet) => {
         onSubmit(tweet)
 
-        setTweet({
-            tweetContent: '',
-            author: 'alina'
-        })
+        setTweet({...emptyTweet})
     }
 
     return (

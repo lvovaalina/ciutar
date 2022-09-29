@@ -23,6 +23,9 @@ const TweetForm = ({tweet, onSubmit}) => {
                 authorName: 'alina',
             }
 
+
+        // move this logic to parent
+
         if (!submittedTweet.id) {
             submittedTweet.id = uuidv4()
             submittedTweet.tweetPostedDate = Date.now()

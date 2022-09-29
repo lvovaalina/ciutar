@@ -1,14 +1,10 @@
-import { combineReducers, createStore } from 'redux'
 import tweetsReducer from '../reducers/tweetsReducer'
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit'
 
-const rootReducer = combineReducers({
-  tweets: tweetsReducer,
-})
+const store = configureStore({
+    reducer: {
+      tweets: tweetsReducer,
+    },
+  })
 
-const configureStore = () => {
-  return createStore(
-    rootReducer
-  );
-}
-
-export default configureStore
+export default store

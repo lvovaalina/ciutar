@@ -1,29 +1,25 @@
 import React from 'react'
-import {ActionCreators} from '../app/actionCreators'
+import { deleteTweet, updateTweet, addTweet } from '../reducers/tweetsReducer'
 import Tweet from '../components/Tweet'
 import CreateTweet from '../components/CreateTweet'
 import TweetWithUpdate from '../components/TweetWithUpdate'
-import {useDispatch, connect} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-const mapStateToProps = (state) => {
-    return {
-        tweets: state.tweets
-    }
-}
+const TweetList = ({isUpdatable = false}) => {
+    const tweets = useSelector((state) => state.tweets)
 
-const TweetList = ({tweets, isUpdatable = false}) => {
     const dispatch = useDispatch()
+
     const onDelete = (id) => {
-        console.log(id)
-        dispatch(ActionCreators.deleteTweet(id))
+        dispatch(deleteTweet(id))
     }
 
     const onUpdate = (tweet) => {
-        dispatch(ActionCreators.updateTweet(tweet))
+        dispatch(updateTweet(tweet))
     }
 
     const onCreate = (tweet) => {
-        dispatch(ActionCreators.addTweet(tweet))
+        dispatch(addTweet(tweet))
     }
 
     return (
@@ -38,6 +34,4 @@ const TweetList = ({tweets, isUpdatable = false}) => {
     )
 }
 
-const Tweets = connect(mapStateToProps)(TweetList);
-
-export default Tweets
+export default TweetList

@@ -1,19 +1,16 @@
-import { NIL } from "uuid"
 import { actionTypes } from "../app/actionTypes"
 
 const initialState = {
-    isLoggedIn: false,
-    email: '',
-    password: '',
+    username: '',
     token: '',
 }
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.user.login:
-            return { ...action.payload.user, isLoggedIn: true }
+            return { ...action.payload.user }
         case actionTypes.user.register:
-            return { ...action.payload.user, isLoggedIn: true }
+            return { ...action.payload.user }
             
         case actionTypes.tweets.logout: 
             return null

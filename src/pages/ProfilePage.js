@@ -1,14 +1,7 @@
 import React from 'react'
-import TweetList from '../comtainers/TweetList'
+import TweetList from '../containers/TweetList'
 
-const mapStateToProps = (state) => {
-    return {
-        profile: state.profile,
-        user: state.user
-    }
-}
-
-const ProfilePage = ({profile, user}) => {
+const ProfilePage = () => {
     return (
         <TweetList isUpdatable={true} />
     )
